@@ -1,44 +1,51 @@
-var crystal = [
-    {Blue: {
+var crystal = {
+    Blue: {
         name: "blue",
         value: 0
-    }},
-    {Red: {
+    },
+    Red: {
         name: "red",
         value: 0
-    }},
-    {Green: {
-        name: "yellow",
-        value: 0
-    }},
-    {Yellow: {
+    },
+    Green: {
         name: "green",
         value: 0
-    }}
-];
+    },
+    Yellow: {
+        name: "yellow",
+        value: 0
+    }
+};
 
 var wins = 0;
 var losses = 0;
 var currentScore=0;
 var goal=0;
 
-function startUp() {
+function newGame() {
     //chooose random score num
     goal = Math.floor(Math.random()*120)+19;
     console.log(goal);
-    //random crystal val
-
+    //random crystal val function being called
+    crystalValue(crystal);
     //set vars to 0 
-}
+    currentScore=0;
+};
 
 function crystalValue (crystal) {
-    crystal[0].Blue.value = Math.floor(Math.random()*12)+1;
-    crystal[1].Red.value = Math.floor(Math.random()*12)+1;
-    crystal[2].Green.value = Math.floor(Math.random()*12)+1;
-    crystal[3].Yellow.value = Math.floor(Math.random()*12)+1;
-    console.log(crystal[0], crystal[1],crystal[2],crystal[3],);
-}
+    crystal.Blue.value = Math.floor(Math.random()*12)+1;
+    crystal.Red.value = Math.floor(Math.random()*12)+1;
+    crystal.Green.value = Math.floor(Math.random()*12)+1;
+    crystal.Yellow.value = Math.floor(Math.random()*12)+1;
+    console.log(crystal);
+};
+
+$(".crystal").on("click", function(){
+    var crystalValue = $(this).data("score");
+    console.log(crystalValue);
+
+    //check the value from the array, add it to currentScore & see if they have gone above the goalScore
+})
 
 
-crystalValue(crystal);
-// startUp();
+newGame();

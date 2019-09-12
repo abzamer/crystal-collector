@@ -1,22 +1,3 @@
-var crystal = {
-    Blue: {
-        name: "blue",
-        value: 0
-    },
-    Red: {
-        name: "red",
-        value: 0
-    },
-    Green: {
-        name: "green",
-        value: 0
-    },
-    Yellow: {
-        name: "yellow",
-        value: 0
-    }
-};
-
 var wins = 0;
 var losses = 0;
 var currentScore=0;
@@ -27,25 +8,44 @@ function newGame() {
     goal = Math.floor(Math.random()*120)+19;
     console.log(goal);
     //random crystal val function being called
-    crystalValue(crystal);
+    crystalValue();
     //set vars to 0 
     currentScore=0;
 };
 
-function crystalValue (crystal) {
-    crystal.Blue.value = Math.floor(Math.random()*12)+1;
-    crystal.Red.value = Math.floor(Math.random()*12)+1;
-    crystal.Green.value = Math.floor(Math.random()*12)+1;
-    crystal.Yellow.value = Math.floor(Math.random()*12)+1;
-    console.log(crystal);
+function crystalValue () {
+    $("#blue").val(Math.floor(Math.random()*12)+1);
+    $("#yellow").val(Math.floor(Math.random()*12)+1);
+    $("#green").val(Math.floor(Math.random()*12)+1);
+    $("#red").val(Math.floor(Math.random()*12)+1);
 };
 
 $(".crystal").on("click", function(){
-    var crystalValue = $(this).data("score");
+    var crystalValue = parseInt($(this).val());
     console.log(crystalValue);
 
-    //check the value from the array, add it to currentScore & see if they have gone above the goalScore
+    // currentScore = currentScore + crystalValue;
+    currentScore += crystalValue;
+    if (currentScore > goal){
+        userLoses();
+        console.log("You LOST, SUCKA!");
+    } else if (currentScore === goal) {
+        userWins();
+        console.log("Wassssuuuuppp!!!");
+    };
 })
+
+function userWins(){
+    wins++;
+    newGame();
+    alert("time for a new game");
+};
+
+function userLoses(){
+    losses++;
+    newGame();
+    alert("wanna try again??");
+};
 
 
 newGame();

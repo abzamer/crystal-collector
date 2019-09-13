@@ -1,21 +1,28 @@
+//variables to hold wins, losses, Goal score, and current score
 var wins = 0;
 var losses = 0;
 var currentScore=0;
 var goal=0;
 
+//puts wins & losses into html
+userWins.innerHTML = wins;
+userLosses.innerHTML = losses;
+
 function newGame() {
     //chooose random score num
     goal = Math.floor(Math.random()*120)+19;
     console.log(goal);
+    $("#target").text(goal);
     //random crystal val function being called
     crystalValue();
     //set vars to 0 
     currentScore=0;
+    
 };
 
 function crystalValue () {
-    $("#blue").val(Math.floor(Math.random()*12)+1);
-    $("#yellow").val(Math.floor(Math.random()*12)+1);
+    $("#purple").val(Math.floor(Math.random()*12)+1);
+    $("#white").val(Math.floor(Math.random()*12)+1);
     $("#green").val(Math.floor(Math.random()*12)+1);
     $("#red").val(Math.floor(Math.random()*12)+1);
 };
@@ -26,25 +33,27 @@ $(".crystal").on("click", function(){
 
     // currentScore = currentScore + crystalValue;
     currentScore += crystalValue;
+    console.log("Now you are at:" + currentScore);
     if (currentScore > goal){
         userLoses();
-        console.log("You LOST, SUCKA!");
+        // console.log("You LOST, SUCKA!");
     } else if (currentScore === goal) {
         userWins();
-        console.log("Wassssuuuuppp!!!");
+        // console.log("Wassssuuuuppp!!!");
     };
-})
+    $("#score").text(currentScore);
+});
 
 function userWins(){
     wins++;
     newGame();
-    alert("time for a new game");
+    alert("You won!");
 };
 
 function userLoses(){
     losses++;
     newGame();
-    alert("wanna try again??");
+    alert("You lost. Want to try again?");
 };
 
 

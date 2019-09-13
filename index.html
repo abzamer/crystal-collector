@@ -51,7 +51,7 @@
                 <div class="card">
                     <h5 class="card-header">Collect this many crystals:</h5>
                     <div class="card-body">
-                        <p class="card-text"></p>
+                        <p class="card-text" id="target"></p>
                     </div>
                 </div>
             </div>
@@ -60,10 +60,9 @@
                 <div class="card">
                     <h5 class="card-header">Did I win or lose?</h5>
                     <div class="card-body">
-                    
                         <p class="card-text">
-                            <p>I've won this many times:</p>
-                            <p>I've lost this many times:</p>
+                            <p class ="userWins">Wins: </p>
+                            <p class="userLosses">Losses: </p>
                         </p>
                         
                     </div>
@@ -74,9 +73,7 @@
                 <div class="card">
                     <h5 class="card-header">Current Score</h5>
                     <div class="card-body">
-                        
-                        <p class="card-text"></p>
-                        
+                        <p class="card-text" id="score"></p>
                     </div>
                 </div>
             </div>
@@ -84,23 +81,38 @@
 
         <div class="row">
             <div class="col-lg-3">
-                <div class="crystal" id="blue" style="height: 75px; width: 75px; background-color: lightblue;">Blue</div>
+                <div class="crystal" id="purple">
+                    <div class="card" style="width: 18rem;">
+                        <img src="assets/images/purpleCrystal.jpg" class="card-img-top" alt="Purple Crystal">
+                    </div>
+                </div>
+            </div>
         
+        
+            <div class="col-lg-3">
+                <div class="crystal" id="white">
+                    <div class="card" style="width: 18rem;">
+                        <img src="assets/images/whiteCrystal.jpg" class="card-img-top" alt="White Crystal">
+                    </div>
+                </div>
             </div>
         
             <div class="col-lg-3">
-                <div class="crystal" id="yellow" style="height: 75px; width: 75px; background-color: lightyellow;">Yellow</div>
-        
+                <div class="crystal" id="red">
+                    <div class="card" style="width: 18rem;">
+                        <img src="assets/images/redCrystal.jpg" class="card-img-top" alt="Red Crystal">
+                    </div>
+                </div>
             </div>
         
-            <div class="col-lg-3">
-                <div class="crystal" id="red" style="height: 75px; width: 75px; background-color: lightcoral;">Red</div>
-        
-            </div>
+            
         
             <div class="col-lg-3">
-                <div class="crystal" id="green" style="height: 75px; width: 75px; background-color: lightgreen;">Green</div>
-        
+                <div class="crystal" id="green">
+                    <div class="card" style="width: 18rem;">
+                        <img src="assets/images/greenCrystal.jpg" class="card-img-top" alt="Green Crystal">
+                    </div>
+                </div>
             </div>
         </div>
 

@@ -9,7 +9,7 @@ $("userLosses").text("Losses: ");
 
 function newGame() {
     //chooose random score num
-    goal = Math.floor(Math.random()*50)+15;
+    goal = Math.floor(Math.random()*120)+19;
     console.log(goal);
     $("#target").text(goal);
     //random crystal val function being called
